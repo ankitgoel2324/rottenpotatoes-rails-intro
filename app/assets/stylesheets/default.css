@@ -10,6 +10,9 @@ div#main {
   margin: 0;
   padding: 0 20px 20px;
 }
+table#movies th.hilite {
+  background-color: yellow;
+}
 a {
   background: transparent;
   color: maroon;
@@ -48,6 +51,7 @@ table#movies th, table#movies td {
   padding: 4px;
   text-align: left;
 }
+
 #notice #warning {
   background: rosybrown;
   margin: 1em 0;
