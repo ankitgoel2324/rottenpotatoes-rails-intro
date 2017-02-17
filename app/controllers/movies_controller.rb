@@ -11,9 +11,19 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @all_ratings = Movie.pluck(:rating).uniq
     
-    @movies = Movie.order(params[:sort_by])
     @sort_column = params[:sort_by]
+    
+    @ratings = params[:ratings]
+    
+    if params[:ratings].nil?
+      @ratings={}
+      @all_ratings.each{ |i| @ratings[i]=1}
+    end
+    
+     @movies = Movie.where(rating: @ratings.keys).order(params[:sort_by])
+    
   end
 
   def new
